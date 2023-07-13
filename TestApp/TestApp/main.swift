@@ -7,7 +7,19 @@
 
 import Foundation
 
-var x : [Int] = [1,2,3,4];
-var y : [Int] = [5,6,7,8];
+var number: Int = Int.random(in: 0..<9);
 
-print(x + y);
+var number_count: [Int : Int] = [:];
+
+var minCount : Int = 0;
+var maxCount : Int = Int(10e4);
+
+for number in minCount..<maxCount {
+    let randomNumber = Int.random(in: 0..<10);
+    if number_count.contains(where: {randomNumber in number_count.keys}) {
+        number_count.updateValue(number_count[randomNumber] + 1, forKey: randomNumber);
+    }
+    else{
+        number_count[randomNumber] = 1;
+    }
+}
